@@ -71,3 +71,31 @@
     }
   }
 }
+.card {
+  .grid-card {
+    text-align: center;
+    height: 310px;
+    position: relative;
+  }
+  .grid-card-button {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    a {
+      color: red;
+      text-decoration: none;
+    }
+  }
+  .card-button {
+    padding: 8px 0px;
+    width: 100%;
+    background: none;
+    border: 0;
+    color: black;
+    transition: 0.5s;
+    &:hover {
+      background-color: red;
+      color: white;
+    }
+  }
+}

@@ -8,6 +8,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions, Grid } from "@mui/material";
 import { useGetAllProductsQuery } from "../../../Services/productApi";
+import DetailsIcon from "@mui/icons-material/Details";
 
 const Home = () => {
   const { data: products, refetch } = useGetAllProductsQuery();
@@ -61,16 +62,13 @@ const Home = () => {
               MEN'S
             </button>
           </div>
-          <div>
+          <div className="card">
             <Grid container spacing={3}>
               {category === "all"
                 ? products?.data.map((product) => {
                     return (
-                      <Grid item xs={12} lg={3} md={2} key={product._id}>
-                        <Card
-                          style={{ textAlign: "center", height: "300px" }}
-                          sx={{ maxWidth: 300 }}
-                        >
+                      <Grid item xs={12} lg={3} md={4} key={product._id}>
+                        <Card className="grid-card">
                           <CardActionArea>
                             <CardMedia
                               component="img"
@@ -78,6 +76,11 @@ const Home = () => {
                               image={product.imgSrc}
                               alt={product.title}
                             />
+                            <Button className="grid-card-button">
+                              <Link to={`products/${product._id}`}>
+                                <DetailsIcon />
+                              </Link>
+                            </Button>
                             <CardContent>
                               <Typography
                                 style={{ fontSize: "14px" }}
@@ -95,9 +98,7 @@ const Home = () => {
                               </Typography>
                             </CardContent>
                           </CardActionArea>
-                          <CardActions>
-                            <Button></Button>
-                          </CardActions>
+                          <button className="card-button">ADD TO CARD</button>
                         </Card>
                       </Grid>
                     );
@@ -106,11 +107,8 @@ const Home = () => {
                     .filter((a) => a.category === category)
                     .map((product) => {
                       return (
-                        <Grid item xs={12} lg={3} md={2} key={product._id}>
-                          <Card
-                            style={{ textAlign: "center", height: "300px" }}
-                            sx={{ maxWidth: 300 }}
-                          >
+                        <Grid item xs={12} lg={3} md={4} key={product._id}>
+                          <Card className="grid-card">
                             <CardActionArea>
                               <CardMedia
                                 component="img"
@@ -118,6 +116,11 @@ const Home = () => {
                                 image={product.imgSrc}
                                 alt={product.title}
                               />
+                              <Button className="grid-card-button">
+                                <Link to={`products/${product._id}`}>
+                                  <DetailsIcon />
+                                </Link>
+                              </Button>
                               <CardContent>
                                 <Typography
                                   style={{ fontSize: "14px" }}
@@ -135,9 +138,7 @@ const Home = () => {
                                 </Typography>
                               </CardContent>
                             </CardActionArea>
-                            <CardActions>
-                              <Button></Button>
-                            </CardActions>
+                            <button className="card-button">ADD TO CARD</button>
                           </Card>
                         </Grid>
                       );
